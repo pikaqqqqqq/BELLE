@@ -12,13 +12,9 @@ import json
 import os
 import random
 import re
-import string
-from functools import partial
-from multiprocessing import Pool
 
 import numpy as np
 import tqdm
-from rouge_score import rouge_scorer
 import utils
 
 import fire
@@ -31,7 +27,7 @@ tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
 def encode_prompt(prompt_instructions):
     """Encode multiple prompt instructions into a single string."""
-    prompt = open("./prompt_cn.txt").read() + "\n"
+    prompt = open("prompt_cn.txt").read() + "\n"
 
     for idx, task_dict in enumerate(prompt_instructions):
         (instruction, input, output) = task_dict["instruction"], task_dict["input"], task_dict["output"]

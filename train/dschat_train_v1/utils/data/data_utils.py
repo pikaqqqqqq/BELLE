@@ -6,14 +6,13 @@
 Part of the code was adopted from https://github.com/microsoft/Megatron-DeepSpeed/blob/main/megatron/data/dataset_utils.py
 """
 import torch
-from torch.utils.data import Dataset, Subset, ConcatDataset
+from torch.utils.data import Dataset, Subset
 from torch.nn.utils.rnn import pad_sequence
 import torch.nn.functional as F
 from datasets import load_dataset
 import numpy as np
 import os
 import copy
-from collections import defaultdict, Counter
 from tqdm import tqdm
 from itertools import chain
 from . import raw_datasets
